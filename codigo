@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char cpf[12];
+    char nome[50];
+    char dataNascimento[11];
+    char telefone[15];
+    char nacionalidade[30];
+    char cep[10];
+    char estadoCivil[20];
+    char email[50];
+    char genero[10];
+} Cadastro;
+
+void exibirCadastro(Cadastro* cadastro) {
+    printf("CPF: %s\n", cadastro->cpf);
+    printf("Nome: %s\n", cadastro->nome);
+    printf("Data de Nascimento: %s\n", cadastro->dataNascimento);
+    printf("Telefone: %s\n", cadastro->telefone);
+    printf("Nacionalidade: %s\n", cadastro->nacionalidade);
+    printf("CEP: %s\n", cadastro->cep);
+    printf("Estado Civil: %s\n", cadastro->estadoCivil);
+    printf("E-mail: %s\n", cadastro->email);
+    printf("Gênero: %s\n", cadastro->genero);
+}
+
+int main() {
+    Cadastro cadastro;
+
+    printf("=== Cadastro de Cliente ===\n");
+    
+    printf("CPF: ");
+    fgets(cadastro.cpf, sizeof(cadastro.cpf), stdin);
+    cadastro.cpf[strcspn(cadastro.cpf, "\n")] = '\0';
+
+    printf("Nome: ");
+    fgets(cadastro.nome, sizeof(cadastro.nome), stdin);
+    cadastro.nome[strcspn(cadastro.nome, "\n")] = '\0';
+
+    printf("Data de Nascimento (dd/mm/aaaa): ");
+    fgets(cadastro.dataNascimento, sizeof(cadastro.dataNascimento), stdin);
+    cadastro.dataNascimento[strcspn(cadastro.dataNascimento, "\n")] = '\0';
+
+    printf("\nTelefone: ");
+    fgets(cadastro.telefone, sizeof(cadastro.telefone), stdin);
+    cadastro.telefone[strcspn(cadastro.telefone, "\n")] = '\0';
+
+    printf("Nacionalidade: ");
+    fgets(cadastro.nacionalidade, sizeof(cadastro.nacionalidade), stdin);
+    cadastro.nacionalidade[strcspn(cadastro.nacionalidade, "\n")] = '\0';
+
+    printf("CEP: ");
+    fgets(cadastro.cep, sizeof(cadastro.cep), stdin);
+    cadastro.cep[strcspn(cadastro.cep, "\n")] = '\0';
+
+    printf("Estado Civil: ");
+    fgets(cadastro.estadoCivil, sizeof(cadastro.estadoCivil), stdin);
+    cadastro.estadoCivil[strcspn(cadastro.estadoCivil, "\n")] = '\0';
+
+    printf("E-mail: ");
+    fgets(cadastro.email, sizeof(cadastro.email), stdin);
+    cadastro.email[strcspn(cadastro.email, "\n")] = '\0';
+
+    printf("Genero: ");
+    fgets(cadastro.genero, sizeof(cadastro.genero), stdin);
+    cadastro.genero[strcspn(cadastro.genero, "\n")] = '\0';
+
+    printf("\n=== Dados do Cadastro ===\n");
+    exibirCadastro(&cadastro);
+
+    return 0;
+}
